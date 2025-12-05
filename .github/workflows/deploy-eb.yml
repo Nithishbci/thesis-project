@@ -1,4 +1,4 @@
-name: Django CI/CD to Elastic Beanstalk
+name: Flask CI/CD to Elastic Beanstalk
 
 on:
   push:
@@ -6,7 +6,6 @@ on:
       - main
 
 jobs:
-
   # ============================================================
   # 1️⃣ PREBUILD STAGE
   # ============================================================
@@ -27,7 +26,6 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y jq unzip wget
 
-
   # ============================================================
   # 2️⃣ BUILD STAGE
   # ============================================================
@@ -46,7 +44,6 @@ jobs:
         run: |
           pip install --upgrade pip
           pip install -r requirements.txt
-
 
   # ============================================================
   # 3️⃣ PACKAGE STAGE
@@ -68,13 +65,12 @@ jobs:
           name: deploy-package
           path: deploy.zip
 
-
   # ============================================================
   # 4️⃣ DEPLOYMENT STAGE
   # ============================================================
   deploy:
     runs-on: ubuntu-latest
-    needs: build_and_test
+    needs: package  # Fixed: Changed from 'build_and_test' to 'package'
 
     steps:
       - name: Download artifact
@@ -102,4 +98,3 @@ jobs:
           version_label: "build-${{ github.run_number }}"
           deployment_package: deploy.zip
           wait_for_deployment: false
-
