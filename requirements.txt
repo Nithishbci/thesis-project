@@ -1,0 +1,9 @@
+opencv-python
+Flask
+gunicorn
+requests
+numpy
+Pillow
+pycryptodome
+psutil
+opencv-python

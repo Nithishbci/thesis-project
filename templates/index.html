@@ -1,0 +1,170 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <ul class="nav nav-tabs" id="myTab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="image-tab" data-bs-toggle="tab" data-bs-target="#image" type="button" role="tab">
+                    <i class="fas fa-image"></i> Image Steganography
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="audio-tab" data-bs-toggle="tab" data-bs-target="#audio" type="button" role="tab">
+                    <i class="fas fa-music"></i> Audio Steganography
+                </button>
+            </li>
+        </ul>
+
+        <div class="tab-content mt-3" id="myTabContent">
+            <!-- Image Tab -->
+            <div class="tab-pane fade show active" id="image" role="tabpanel">
+                <div class="row">
+                    <!-- Left Side - Input Section -->
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-header bg-primary text-white">
+                                <h5 class="mb-0"><i class="fas fa-upload"></i> Input Section</h5>
+                            </div>
+                            <div class="card-body">
+                                <!-- Embed Section -->
+                                <div class="mb-4">
+                                    <h6><i class="fas fa-lock"></i> Embed Secret Message</h6>
+                                    <form id="imageEmbedForm" enctype="multipart/form-data">
+                                        <div class="mb-3">
+                                            <label class="form-label">Upload Cover Image</label>
+                                            <input type="file" class="form-control" name="image" accept="image/*" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Secret Message</label>
+                                            <textarea class="form-control" name="secret_message" rows="3" required placeholder="Enter your secret message here..."></textarea>
+                                        </div>
+                                        <button type="submit" class="btn btn-success">
+                                            <i class="fas fa-shield-alt"></i> Embed Message
+                                        </button>
+                                    </form>
+                                </div>
+
+                                <hr>
+
+                                <!-- Extract Section -->
+                                <div>
+                                    <h6><i class="fas fa-unlock"></i> Extract Secret Message</h6>
+                                    <form id="imageExtractForm" enctype="multipart/form-data">
+                                        <div class="mb-3">
+                                            <label class="form-label">Upload Stego Image</label>
+                                            <input type="file" class="form-control" name="stego_image" accept="image/*" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Private Key (Hex)</label>
+                                            <input type="text" class="form-control" name="private_key" required placeholder="Enter private key in hex format">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Public Key (Hex)</label>
+                                            <input type="text" class="form-control" name="public_key" required placeholder="Enter public key in hex format">
+                                        </div>
+                                        <button type="submit" class="btn btn-info">
+                                            <i class="fas fa-search"></i> Extract Message
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Side - Metrics Section -->
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-header bg-success text-white">
+                                <h5 class="mb-0"><i class="fas fa-chart-bar"></i> Metrics & Results</h5>
+                            </div>
+                            <div class="card-body">
+                                <div id="imageResults">
+                                    <div class="text-center text-muted">
+                                        <i class="fas fa-chart-line fa-3x mb-3"></i>
+                                        <p>Results will appear here after processing</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Audio Tab -->
+            <div class="tab-pane fade" id="audio" role="tabpanel">
+                <div class="row">
+                    <!-- Left Side - Input Section -->
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-header bg-primary text-white">
+                                <h5 class="mb-0"><i class="fas fa-upload"></i> Input Section</h5>
+                            </div>
+                            <div class="card-body">
+                                <!-- Embed Section -->
+                                <div class="mb-4">
+                                    <h6><i class="fas fa-lock"></i> Embed Secret Message</h6>
+                                    <form id="audioEmbedForm" enctype="multipart/form-data">
+                                        <div class="mb-3">
+                                            <label class="form-label">Upload Cover Audio (WAV)</label>
+                                            <input type="file" class="form-control" name="audio" accept=".wav" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Secret Message</label>
+                                            <textarea class="form-control" name="secret_message" rows="3" required placeholder="Enter your secret message here..."></textarea>
+                                        </div>
+                                        <button type="submit" class="btn btn-success">
+                                            <i class="fas fa-shield-alt"></i> Embed Message
+                                        </button>
+                                    </form>
+                                </div>
+
+                                <hr>
+
+                                <!-- Extract Section -->
+                                <div>
+                                    <h6><i class="fas fa-unlock"></i> Extract Secret Message</h6>
+                                    <form id="audioExtractForm" enctype="multipart/form-data">
+                                        <div class="mb-3">
+                                            <label class="form-label">Upload Stego Audio (WAV)</label>
+                                            <input type="file" class="form-control" name="stego_audio" accept=".wav" required>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Private Key (Hex)</label>
+                                            <input type="text" class="form-control" name="private_key" required placeholder="Enter private key in hex format">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Public Key (Hex)</label>
+                                            <input type="text" class="form-control" name="public_key" required placeholder="Enter public key in hex format">
+                                        </div>
+                                        <button type="submit" class="btn btn-info">
+                                            <i class="fas fa-search"></i> Extract Message
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Side - Metrics Section -->
+                    <div class="col-md-6">
+                        <div class="card">
+                            <div class="card-header bg-success text-white">
+                                <h5 class="mb-0"><i class="fas fa-chart-bar"></i> Metrics & Results</h5>
+                            </div>
+                            <div class="card-body">
+                                <div id="audioResults">
+                                    <div class="text-center text-muted">
+                                        <i class="fas fa-chart-line fa-3x mb-3"></i>
+                                        <p>Results will appear here after processing</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

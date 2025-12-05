@@ -1,0 +1,211 @@
+body {
+    background-color: #f8f9fa;
+}
+
+.card {
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    border: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.nav-tabs .nav-link {
+    font-weight: 500;
+}
+
+.nav-tabs .nav-link.active {
+    font-weight: 600;
+}
+
+.metric-card {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.metric-value {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.metric-label {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.stego-image {
+    max-width: 100%;
+    border: 2px solid #dee2e6;
+    border-radius: 5px;
+}
+
+.alert-custom {
+    border-left: 4px solid;
+}
+
+.ciphertext-display {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    padding: 10px;
+    font-family: monospace;
+    font-size: 0.85rem;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.loading-spinner {
+    text-align: center;
+    padding: 20px;
+}
+
+body {
+    background-color: #f8f9fa;
+}
+
+.card {
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    border: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.nav-tabs .nav-link {
+    font-weight: 500;
+}
+
+.nav-tabs .nav-link.active {
+    font-weight: 600;
+}
+
+.metric-card {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.metric-value {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.metric-label {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.stego-image {
+    max-width: 100%;
+    border: 2px solid #dee2e6;
+    border-radius: 5px;
+}
+
+.alert-custom {
+    border-left: 4px solid;
+}
+
+.ciphertext-display {
+    background-color: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    padding: 10px;
+    font-family: monospace;
+    font-size: 0.85rem;
+    max-height: 200px;
+    overflow-y: auto;
+    word-break: break-all;
+}
+
+.loading-spinner {
+    text-align: center;
+    padding: 20px;
+}
+
+.copy-btn {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+}
+
+.copy-header {
+    display: flex;
+    justify-content: between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.copy-section {
+    margin-bottom: 1rem;
+}
+
+.copy-section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.copy-section-header h6 {
+    margin: 0;
+}
+
+.btn-copy-all {
+    font-size: 0.75rem;
+}
+
+/* Smooth transitions for copy buttons */
+.copy-btn {
+    transition: all 0.3s ease;
+}
+
+/* Scrollbar styling for ciphertext displays */
+.ciphertext-display::-webkit-scrollbar {
+    width: 8px;
+}
+
+.ciphertext-display::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.ciphertext-display::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 4px;
+}
+
+.ciphertext-display::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
+
+
+/* ... (previous styles remain the same) */
+
+/* Section headers for metrics */
+.metrics-section-header {
+    color: #495057;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    border-bottom: 2px solid #dee2e6;
+    padding-bottom: 0.25rem;
+}
+
+/* Different background colors for metric cards based on category */
+.metric-card.timing {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.metric-card.quality {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.metric-card.capacity {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+}
+
+.metric-card.size {
+    background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+}
+
+.metric-card.system {
+    background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+}
